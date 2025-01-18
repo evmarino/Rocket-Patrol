@@ -38,7 +38,7 @@ class Play extends Phaser.Scene{
         //display score
         let scoreConfig = {
            fontFamily: 'Courier',
-           fintSize: '28px',
+           fontSize: '28px',
            backgroundColor: '#F3B141',
            color: '#843605',
            align: 'right',
@@ -66,8 +66,12 @@ class Play extends Phaser.Scene{
     }
 
     update() {
+
+        // check key input for restart
+        if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyRESET)) {
+             this.scene.restart()
+}
         
-        //check key input for restart
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene")
         }
@@ -121,6 +125,7 @@ class Play extends Phaser.Scene{
                 
             
         })
+    
         this.p1Score += ship.points
         this.scoreLeft.text = this.p1Score
 
@@ -129,8 +134,8 @@ class Play extends Phaser.Scene{
             this.ship01.update()
             this.ship02.update()
             this.ship03.update()
-        }
+        
         this.sound.play('sfx-explosion')
         }
-            
-    }
+    }    
+}

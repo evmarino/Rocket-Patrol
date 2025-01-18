@@ -69,11 +69,11 @@ update(){
     if(Phaser.Input.Keyboard.JustDown(keyRIGHT)){
         // hard mode
         game.settings = {
-            spaceshupSpeed: 4, 
+            spaceshipSpeed: 4, 
             gameTimer: 45000
         }
         this.sound.play('sfx-select')
-        this.scene.start('playscene')
+        this.scene.start('playScene')
     }
 
 }
